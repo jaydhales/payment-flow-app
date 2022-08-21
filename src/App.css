@@ -1,7 +1,177 @@
-a {
-  text-decoration: none;
+.App {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.polygon {
+  background: rgba(242, 153, 74, 0.2);
+  width: 100vw;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 100%);
+}
+
+h3 {
+  color: #4e598c;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+}
+
+nav a {
+  padding: 1rem 5px;
+  text-align: center;
 }
 
 nav a.active {
-  color: yellow;
+  color: #f2994a;
+  position: relative;
+}
+
+nav a.active::before {
+  content: "";
+  width: 101%;
+  height: 10px;
+  background: #f2994a;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  transform: translateY(50%);
+}
+
+form {
+  width: 600px;
+}
+
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.form-sec {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-sec .first {
+  width: 75%;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #4e598c;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #4f4f4f;
+}
+
+label {
+  font-weight: bold;
+}
+
+span {
+  color: #eb5757;
+}
+
+.form-action {
+  margin: 1rem;
+}
+
+.form-action a {
+  padding: 0.5rem 4rem;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.next {
+  background: linear-gradient(180deg, #f2c94c 0%, #f2994a 100%);
+  color: #fff;
+}
+
+.cancel {
+  color: #4e598c;
+}
+
+.item-card,
+.success {
+  background: #fff;
+  box-shadow: 0px 10px 15px rgba(33, 30, 67, 0.08);
+  border-radius: 10px;
+  margin: 2rem 1rem;
+  padding-bottom: 1rem;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+}
+
+.card-header {
+  background: #2f80ed;
+  border-radius: 10px 10px 0 0;
+}
+.card-header p {
+  color: #fff;
+}
+
+.card-content {
+  margin: 2rem 2rem 0;
+  border-bottom: 1px solid #817e9e;
+  padding-bottom: 1rem;
+}
+
+.card-content p {
+  color: #4e598c;
+}
+
+.card-content .card-row {
+  padding: 1rem 2rem;
+}
+
+.item-total {
+  border: 1px solid #817e9e;
+  margin: 1rem 3rem;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+}
+
+.success {
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  padding: 3rem;
+}
+
+.success a {
+  color: #f2994a;
+}
+
+.success a:hover {
+  text-decoration: underline;
+}
+
+.fa-check {
+  box-shadow: 0px 6px 10px rgba(33, 30, 67, 0.08);
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  border-radius: 50%;
+  text-align: center;
 }

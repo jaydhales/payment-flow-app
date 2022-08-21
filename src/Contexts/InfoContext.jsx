@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const InfoContext = createContext();
 
 const InfoContextProvider = ({ children }) => {
-  const [personalInfo, setPersonalInfo] = useState({
+  const initPersonal = useState({
     name: "",
     email: "",
     address1: "",
@@ -12,13 +12,22 @@ const InfoContextProvider = ({ children }) => {
     state: "",
   });
 
-  const [billingInfo, setBillingInfo] = useState({
+  const initBilling = useState({
     cardName: "",
     cardType: "",
     cardDetails: "",
     expiry: "",
     cvv: "",
   });
+
+  const [personalInfo, setPersonalInfo] = useState(initPersonal);
+
+  const [billingInfo, setBillingInfo] = useState(initBilling);
+
+  const clearForm = () => {
+    setPersonalInfo(initPersonal);
+    setBillingInfo(initBilling);
+  };
 
   return (
     <InfoContext.Provider
@@ -27,6 +36,7 @@ const InfoContextProvider = ({ children }) => {
         setPersonalInfo,
         billingInfo,
         setBillingInfo,
+        clearForm,
       }}
     >
       {children}

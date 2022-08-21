@@ -6,13 +6,13 @@
 
 .polygon {
   background: rgba(242, 153, 74, 0.2);
-  width: 100vw;
-  height: 400px;
+  width: 100%;
+  min-height: 400px;
+  height: 60%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-
   clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 100%);
 }
 
@@ -50,7 +50,8 @@ nav a.active::before {
   transform: translateY(50%);
 }
 
-form {
+form,
+.container {
   width: 600px;
 }
 
@@ -92,7 +93,8 @@ span {
   margin: 1rem;
 }
 
-.form-action a {
+.next ,
+.cancel {
   padding: 0.5rem 4rem;
   font-weight: 700;
   border-radius: 5px;

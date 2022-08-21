@@ -10,12 +10,12 @@ function App() {
     <div className="App">
       <div className="polygon"></div>
       <form onSubmit={(e) => e.preventDefault()}>
-        <Routes>
-          <Route path="/" element={<PersonalInfoRoute />} />
-          <Route path="/billing" element={<BillingInfoRoute />} />
-          <Route path="/payment" element={<PaymentConfirmation />} />
-          <Route path="/success" element={<PurchaseSuccessful />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<PersonalInfoRoute />} />
+        <Route path="/billing" element={<BillingInfoRoute />} />
+        <Route path="/payment" element={<PaymentConfirmation />} />
+        <Route path="/success" element={<PurchaseSuccessful />} />
+      </Routes>
       </form>
     </div>
   );

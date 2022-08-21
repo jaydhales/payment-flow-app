@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import FormAction from "../Components/FormAction";
 import Header from "../Components/Header";
 
 const PaymentConfirmation = () => {
@@ -30,15 +29,7 @@ const PaymentConfirmation = () => {
         </div>
       </div>
 
-      <div className="form-action">
-        <Link to="/success" className="next">
-          Pay
-        </Link>
-
-        <a href="#" className="cancel">
-          Cancel Payment
-        </a>
-      </div>
+      <FormAction href={"/success"} />
     </div>
   );
 };

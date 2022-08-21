@@ -27,6 +27,7 @@ const InfoContextProvider = ({ children }) => {
   const clearForm = () => {
     setPersonalInfo(initPersonal);
     setBillingInfo(initBilling);
+    console.log("cleared");
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import Header from "../Components/Header";
+import FormAction from "../Components/FormAction.jsx";
 import { InfoContext } from "../Contexts/InfoContext";
 
 const PersonalInfoRoute = () => {
@@ -27,11 +27,12 @@ const PersonalInfoRoute = () => {
         </label>
         <small>The purchase receipt would be sent to this address</small>
         <input
-          type="text"
+          type="email"
           value={personalInfo.email}
           onChange={(e) =>
             setPersonalInfo({ ...personalInfo, email: e.target.value })
           }
+          required
         />
       </div>
 
@@ -81,15 +82,7 @@ const PersonalInfoRoute = () => {
         </div>
       </div>
 
-      <div className="form-action">
-        <Link to="/billing" className='next'>
-          Next{" "}
-        </Link>
-
-        <a href="#" className="cancel">
-          Cancel Payment
-        </a>
-      </div>
+      <FormAction href="/billing"/>
     </div>
   );
 };

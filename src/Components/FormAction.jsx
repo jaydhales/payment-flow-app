@@ -7,15 +7,22 @@ const FormAction = ({ href }) => {
 
   return (
     <div className="form-action">
-      <button type="submit">
-        <Link to={href} className="next">
-          {href === "/success" ? "Pay" : "Next"}
-        </Link>
-      </button>
+      {href !== "/success" ? (
+        <button>
+          <Link to={href} className="next">
+            Next
+          </Link>
+        </button>
+      ) : (
+        <input type="submit" value="Pay" className="next" />
+      )}
 
-      <button className="cancel" onClick={(e) => clearForm()}>
-        Cancel Payment
-      </button>
+      <input
+        type="button"
+        className="cancel"
+        value=" Cancel Payment"
+        onClick={(e) => clearForm(e)}
+      />
     </div>
   );
 };

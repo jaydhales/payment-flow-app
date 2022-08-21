@@ -1,33 +1,39 @@
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
 
 const InfoContext = createContext();
 
 const InfoContextProvider = ({ children }) => {
-  const initPersonal = useState({
+  const initPersonal = {
     name: "",
     email: "",
     address1: "",
     address2: "",
     lga: "",
     state: "",
-  });
+  };
 
-  const initBilling = useState({
+  const initBilling = {
     cardName: "",
     cardType: "",
     cardDetails: "",
     expiry: "",
     cvv: "",
-  });
+  };
 
   const [personalInfo, setPersonalInfo] = useState(initPersonal);
 
   const [billingInfo, setBillingInfo] = useState(initBilling);
 
-  const clearForm = () => {
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+  const [validateForm, setValidateForm] = useState(true);
+
+  const clearForm = (e) => {
+    e && e.preventDefault();
+
     setPersonalInfo(initPersonal);
     setBillingInfo(initBilling);
-    console.log("cleared");
+    setIsFormSubmitted(false);
   };
 
   return (
@@ -38,6 +44,10 @@ const InfoContextProvider = ({ children }) => {
         billingInfo,
         setBillingInfo,
         clearForm,
+        isFormSubmitted,
+        setIsFormSubmitted,
+        validateForm,
+        setValidateForm,
       }}
     >
       {children}

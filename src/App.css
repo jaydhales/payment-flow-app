@@ -50,9 +50,9 @@ nav a.active::before {
   transform: translateY(50%);
 }
 
-form,
-.container {
-  width: 600px;
+form {
+  width: 550px;
+  margin: 1rem;
 }
 
 .form-group {
@@ -70,11 +70,14 @@ form,
   width: 75%;
 }
 
-input {
+input,
+select,
+option {
   padding: 0.5rem 1rem;
   border: 1px solid #4e598c;
-  border-radius: 5px;
   width: 100%;
+  border-radius: 5px;
+  background: #fff;
 }
 
 input::placeholder {
@@ -91,13 +94,16 @@ span {
 
 .form-action {
   margin: 1rem;
+  display: flex;
 }
 
-.next ,
+.next,
 .cancel {
   padding: 0.5rem 4rem;
   font-weight: 700;
   border-radius: 5px;
+  border: 0;
+  width: max-content;
 }
 
 .next {
@@ -177,4 +183,65 @@ span {
   border-radius: 50%;
   display: grid;
   place-content: center;
+}
+
+.form-error {
+  color: #eb5757;
+  margin-top: 0.5rem;
+  font-size: large;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    width: auto;
+    max-width: 400px;
+  }
+  h3 {
+    text-align: center;
+  }
+
+  nav {
+    display: grid;
+    place-content: center;
+  }
+
+  nav a.active::before {
+    display: none;
+  }
+
+  .form-action {
+    display: grid;
+    width: max-content;
+    gap: 1rem;
+  }
+
+  button,
+  .cancel {
+    width: max-content;
+    padding: 0.5rem 0;
+  }
+
+  .form-sec {
+    display: grid;
+  }
+  .form-sec .first {
+    width: 100%;
+  }
+
+  .card-row {
+    padding: 1rem 2rem;
+  }
+
+  .card-content,
+  .item-total {
+    margin: 1rem 0;
+  }
+
+  .item-total {
+    border: none;
+  }
+  .item-card {
+    padding: 0;
+  }
 }

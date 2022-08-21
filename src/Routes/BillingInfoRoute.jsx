@@ -24,7 +24,10 @@ const BillingInfoRoute = () => {
           type="text"
           value={billingInfo.cardName}
           onChange={(e) =>
-            setBillingInfo({ ...billingInfo, cardName: e.target.value })
+            setBillingInfo((prevObj) => ({
+              ...prevObj,
+              cardName: e.target.value,
+            }))
           }
           required
         />
@@ -34,14 +37,23 @@ const BillingInfoRoute = () => {
         <label htmlFor="card-type">
           Card Type <span>*</span>
         </label>
-        <input
+        <select
           type="text"
           value={billingInfo.cardType}
           onChange={(e) =>
-            setBillingInfo({ ...billingInfo, cardType: e.target.value })
+            setBillingInfo((prevObj) => ({
+              ...prevObj,
+              cardType: e.target.value,
+            }))
           }
-          required
-        />
+        >
+          <option value="" disabled>
+            Select Card Type
+          </option>
+          <option value="Mastercard">MasterCard</option>
+          <option value="Verve">Verve</option>
+          <option value="Visa">Visa</option>
+        </select>
       </div>
 
       <div className="form-sec">
@@ -50,10 +62,17 @@ const BillingInfoRoute = () => {
             Card details <span>*</span>
           </label>
           <input
-            type="text"
+            type="tel"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            maxLength="16"
             value={billingInfo.cardDetails}
+            placeholder="xxxx xxxx xxxx xxxx"
             onChange={(e) =>
-              setBillingInfo({ ...billingInfo, cardDetails: e.target.value })
+              setBillingInfo((prevObj) => ({
+                ...prevObj,
+                cardDetails: e.target.value,
+              }))
             }
             required
           />
@@ -64,10 +83,14 @@ const BillingInfoRoute = () => {
             Expiry date <span>*</span>
           </label>
           <input
-            type="text"
+            type="tel"
             value={billingInfo.expiry}
+            placeholder="XX / XX"
             onChange={(e) =>
-              setBillingInfo({ ...billingInfo, expiry: e.target.value })
+              setBillingInfo((prevObj) => ({
+                ...prevObj,
+                expiry: e.target.value,
+              }))
             }
             required
           />
@@ -78,10 +101,15 @@ const BillingInfoRoute = () => {
             CVV <span>*</span>
           </label>
           <input
-            type="text"
+            type="password"
+            maxLength="3"
             value={billingInfo.cvv}
+            placeholder="XXX"
             onChange={(e) =>
-              setBillingInfo({ ...billingInfo, cvv: e.target.value })
+              setBillingInfo((prevObj) => ({
+                ...prevObj,
+                cvv: e.target.value,
+              }))
             }
             required
           />

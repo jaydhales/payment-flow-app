@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from "./Components/Nav.jsx";
+import PersonalInfo from "./Routes/PersonalInfo.jsx";
+import BillingInfo from "./Routes/BillingInfo.jsx";
+import PaymentConfirmation from "./Routes/PaymentConfirmation.jsx";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Complete your Purchase</h3>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<PersonalInfo />} />
+        <Route path="/billing" element={<BillingInfo />} />
+        <Route path="/payment" element={<PaymentConfirmation />} />
+      </Routes>
     </div>
   );
 }
